@@ -1,0 +1,294 @@
+{
+ "source": "hand-written for this repo; standard interview prompts, no company attributions",
+ "categories": ["behavioral", "python", "data-structures", "sql", "ml", "product"],
+ "questions": [
+  {
+   "id": "bh-001", "category": "behavioral",
+   "question": "Tell me about yourself.",
+   "why": "It opens almost every interview, and a rambling answer costs you the first impression. A tight 90-second arc - present, past, why this role - sets up everything after it.",
+   "followups": ["Why this company specifically?", "What are you looking for in an internship?", "Where do you want to grow this year?"]
+  },
+  {
+   "id": "bh-002", "category": "behavioral",
+   "question": "Tell me about a time you had a conflict on a team. What did you do?",
+   "why": "Interviewers use it to check whether you blame people or fix problems. Pick a real disagreement, own your part, and end on what changed in how you work.",
+   "followups": ["What would you do differently now?", "What did the other person say afterward?"]
+  },
+  {
+   "id": "bh-003", "category": "behavioral",
+   "question": "Describe a project that failed or went badly. What happened?",
+   "why": "They're testing honesty and whether you learn. A polished non-failure reads as evasive; a real one with a concrete lesson reads as mature.",
+   "followups": ["What were the early warning signs?", "How do you catch that earlier now?"]
+  },
+  {
+   "id": "bh-004", "category": "behavioral",
+   "question": "Tell me about a time you had to learn something technical fast.",
+   "why": "Internships are mostly learning under time pressure. Show the method: what you read, what you built first, how you checked you actually understood.",
+   "followups": ["How do you know when you understand something vs. recognizing it?", "What did you build to prove it?"]
+  },
+  {
+   "id": "bh-005", "category": "behavioral",
+   "question": "Tell me about a time you disagreed with how a project should be built.",
+   "why": "They want to see you can push back without making it personal: state the tradeoff, bring evidence, and commit once the decision is made.",
+   "followups": ["What if you turn out to be wrong?", "Have you ever convinced a team to change course?"]
+  },
+  {
+   "id": "bh-006", "category": "behavioral",
+   "question": "What's your greatest weakness?",
+   "why": "A fake strength ('I'm a perfectionist') wastes the question. Name a real one, then show the system you built to work around it.",
+   "followups": ["How has that weakness actually cost you?", "Who would say you're improving at it?"]
+  },
+  {
+   "id": "bh-007", "category": "behavioral",
+   "question": "Tell me about a time you had to juggle several deadlines at once.",
+   "why": "School plus recruiting plus projects is the internship preview. Show triage: what you dropped, what you negotiated, what shipped on time.",
+   "followups": ["What fell through, and how did you handle it?", "How do you decide what to say no to?"]
+  },
+  {
+   "id": "bh-008", "category": "behavioral",
+   "question": "Why should we hire you over other applicants?",
+   "why": "The answer is specific evidence, not adjectives: two or three concrete things you've shipped or taught, tied to what the role actually needs.",
+   "followups": ["What's the strongest evidence you can point to?", "What would a past teammate say you add?"]
+  },
+  {
+   "id": "py-001", "category": "python",
+   "question": "What's the difference between a list and a tuple in Python? When would you use each?",
+   "why": "Mutability is the point: lists are mutable and hashable-unsafe, tuples are immutable and usable as dict keys. Using the right one signals intent.",
+   "followups": ["Why can't a list be a dict key?", "Is a tuple containing a list immutable in practice?", "What about set vs frozenset?"]
+  },
+  {
+   "id": "py-002", "category": "python",
+   "question": "Explain list comprehensions. Rewrite a for-loop with a condition as one.",
+   "why": "Comprehensions are the most common real-world Python idiom; interviewers watch whether you write them fluently or translate slowly.",
+   "followups": ["When is a comprehension a bad idea?", "What's the difference between a list comprehension and a generator expression?"]
+  },
+  {
+   "id": "py-003", "category": "python",
+   "question": "What does *args and **kwargs do in a function signature?",
+   "why": "Comes up constantly in library code and decorators. Know that *args collects positional extras into a tuple and **kwargs collects keyword extras into a dict.",
+   "followups": ["Write a decorator that prints a function's arguments.", "What's the order of parameters when you mix them?"]
+  },
+  {
+   "id": "py-004", "category": "python",
+   "question": "How do dictionaries work in Python? What can be a key?",
+   "why": "Hash tables are the backbone of half the coding questions you'll get; keys must be hashable, lookup is average O(1), and since 3.7 dicts keep insertion order.",
+   "followups": ["What happens on a hash collision, conceptually?", "dict.get vs dict[key] - what's the difference?", "What does setdefault do?"]
+  },
+  {
+   "id": "py-005", "category": "python",
+   "question": "What's a generator? Write one that yields squares of even numbers up to n.",
+   "why": "Lazy evaluation matters when data doesn't fit in memory; knowing yield vs return is a real signal of fluency.",
+   "followups": ["What happens to a generator after it's exhausted?", "How is `yield from` used?", "Generator vs iterator - what's the relationship?"]
+  },
+  {
+   "id": "py-006", "category": "python",
+   "question": "Explain the difference between 'is' and '==' in Python.",
+   "why": "Identity vs equality: 'is' compares object identity, == calls __eq__. The classic trap is small-int and string interning making 'is' look right in tests.",
+   "followups": ["Why is `a is None` idiomatic?", "What is __eq__ and when would you define it?"]
+  },
+  {
+   "id": "py-007", "category": "python",
+   "question": "How does exception handling work? Show try/except/else/finally.",
+   "why": "Robust code is the job; knowing that finally always runs and that bare except hides bugs separates careful engineers.",
+   "followups": ["Why is catching Exception broadly bad?", "How do you raise a custom exception?", "What happens if the except block raises?"]
+  },
+  {
+   "id": "py-008", "category": "python",
+   "question": "What are decorators? Write one that times a function.",
+   "why": "A decorator is a function that wraps a function; being able to write @timer cold is a common live-coding check.",
+   "followups": ["What does functools.wraps preserve?", "How do decorators with arguments work (three levels of nesting)?"]
+  },
+  {
+   "id": "ds-001", "category": "data-structures",
+   "question": "Reverse a linked list. Walk me through the pointer updates.",
+   "why": "The classic. Three pointers (prev, curr, next), O(n) time, O(1) space; saying the invariant out loud is what interviewers listen for.",
+   "followups": ["Do it recursively.", "Reverse only nodes k through m.", "How would you detect a cycle first?"]
+  },
+  {
+   "id": "ds-002", "category": "data-structures",
+   "question": "How would you detect a cycle in a linked list?",
+   "why": "Floyd's tortoise and hare is the expected answer: two pointers at different speeds meet inside a cycle, O(1) space.",
+   "followups": ["Find the node where the cycle starts.", "What's the proof the pointers always meet?"]
+  },
+  {
+   "id": "ds-003", "category": "data-structures",
+   "question": "Given a string of brackets, check they're balanced. What data structure do you reach for?",
+   "why": "A stack, and the point is saying why: last-opened must be first-closed is exactly LIFO. O(n) time, O(n) space worst case.",
+   "followups": ["Return the index of the first bad bracket.", "Extend it to count minimum edits to balance."]
+  },
+  {
+   "id": "ds-004", "category": "data-structures",
+   "question": "When do you use a hash map vs sorting first?",
+   "why": "The two-sum tradeoff: hash map gives O(n) with extra space, sorting gives O(n log n) with no extra space but destroys order. Stating the tradeoff is the answer.",
+   "followups": ["Two-sum: return any pair summing to target.", "What if the array is already sorted (two pointers)?"]
+  },
+  {
+   "id": "ds-005", "category": "data-structures",
+   "question": "Explain BFS vs DFS. When does each win?",
+   "why": "BFS finds shortest paths in unweighted graphs level by level (queue); DFS explores deep first (stack/recursion) and suits existence checks and topological order.",
+   "followups": ["Implement BFS on a grid.", "Why can't DFS give shortest paths?", "What state do you track to avoid revisiting?"]
+  },
+  {
+   "id": "ds-006", "category": "data-structures",
+   "question": "What's a binary search tree? What can go wrong with one?",
+   "why": "Ordered left-right structure gives O(log n) search only while balanced; a degenerate BST is a linked list. Knowing that is the insight.",
+   "followups": ["Validate that a tree is a BST.", "What's an inorder traversal of a BST give you?", "Name a self-balancing variant."]
+  },
+  {
+   "id": "ds-007", "category": "data-structures",
+   "question": "Find the k most frequent elements in a list. What are your options?",
+   "why": "Sorting by count is O(n log n); a heap of size k is O(n log k); bucket-by-frequency is O(n). Talking through all three shows range.",
+   "followups": ["Which do you pick when k is tiny? Huge?", "Implement the heap version with heapq."]
+  },
+  {
+   "id": "ds-008", "category": "data-structures",
+   "question": "Design a data structure with O(1) insert, delete and getRandom.",
+   "why": "The trick is combining a list (O(1) random access) with a dict of value-to-index, and swapping with the last element on delete. A real design favorite.",
+   "followups": ["What breaks if duplicates are allowed?", "Why is the swap trick necessary?"]
+  },
+  {
+   "id": "sql-001", "category": "sql",
+   "question": "What's the difference between WHERE and HAVING?",
+   "why": "WHERE filters rows before grouping; HAVING filters groups after GROUP BY. Getting this backwards is the most common SQL slip.",
+   "followups": ["Write a query finding departments with more than 5 employees.", "Where does ORDER BY fit in execution order?"]
+  },
+  {
+   "id": "sql-002", "category": "sql",
+   "question": "Explain INNER JOIN vs LEFT JOIN with an example.",
+   "why": "INNER keeps only matches; LEFT keeps every left row with NULLs for non-matches. Choosing wrong silently drops data.",
+   "followups": ["Find users who have never placed an order.", "What's a full outer join?"]
+  },
+  {
+   "id": "sql-003", "category": "sql",
+   "question": "Find the second-highest value in a column. Give two ways.",
+   "why": "Tests whether you know ORDER BY ... LIMIT 1 OFFSET 1 and the MAX-below-MAX subquery, and whether you think about ties.",
+   "followups": ["What does DENSE_RANK do differently?", "How do you handle duplicates - second distinct value or second row?"]
+  },
+  {
+   "id": "sql-004", "category": "sql",
+   "question": "What's an index? When does adding one hurt?",
+   "why": "Indexes speed reads at the cost of slower writes and storage; knowing that tradeoff matters more than the syntax.",
+   "followups": ["What's a composite index and when does column order matter?", "What's a covering index?"]
+  },
+  {
+   "id": "sql-005", "category": "sql",
+   "question": "How do you find duplicate rows in a table?",
+   "why": "GROUP BY key columns with HAVING COUNT(*) > 1. Then the real question: how do you delete dupes keeping one copy.",
+   "followups": ["Delete duplicates keeping the lowest id.", "How would you prevent duplicates going forward?"]
+  },
+  {
+   "id": "sql-006", "category": "sql",
+   "question": "What does GROUP BY actually do, step by step?",
+   "why": "Being able to narrate partition -> aggregate -> one row per group prevents half of all SQL mistakes, especially mixing grouped and ungrouped columns.",
+   "followups": ["Why can't you SELECT a non-grouped, non-aggregated column?", "Compare GROUP BY with a window function over the same partition."]
+  },
+  {
+   "id": "sql-007", "category": "sql",
+   "question": "What's a window function? Give a use case.",
+   "why": "ROW_NUMBER/RANK/SUM OVER (...) compute across related rows without collapsing them - running totals and top-n-per-group are the classic uses.",
+   "followups": ["Top 3 salaries per department.", "RANK vs DENSE_RANK vs ROW_NUMBER."]
+  },
+  {
+   "id": "sql-008", "category": "sql",
+   "question": "What's the difference between UNION and UNION ALL?",
+   "why": "UNION dedupes (with a sort cost); UNION ALL just concatenates. The follow-up is when each is correct.",
+   "followups": ["Which is faster and why?", "What happens to NULLs under UNION?"]
+  },
+  {
+   "id": "ml-001", "category": "ml",
+   "question": "Explain overfitting. How do you detect it and what do you do about it?",
+   "why": "The most-asked ML question at this level: training accuracy up, validation accuracy down. Fixes: more data, simpler model, regularization, early stopping.",
+   "followups": ["What's the bias-variance tradeoff?", "How does dropout help?", "Why is a bigger model not always better?"]
+  },
+  {
+   "id": "ml-002", "category": "ml",
+   "question": "Why split data into train/validation/test? What goes wrong if you tune on the test set?",
+   "why": "Tuning on test leaks it into your decisions, so your reported score is optimistic and won't hold in production. That sentence is the whole answer.",
+   "followups": ["What's cross-validation?", "What is data leakage, with an example?"]
+  },
+  {
+   "id": "ml-003", "category": "ml",
+   "question": "Accuracy is 95% but the model is useless. How?",
+   "why": "Class imbalance: predicting the majority class on a 95:5 dataset gives 95% accuracy and zero value. Precision, recall and the confusion matrix are the fix.",
+   "followups": ["When do you optimize precision vs recall?", "What does F1 do?", "What's a PR curve?"]
+  },
+  {
+   "id": "ml-004", "category": "ml",
+   "question": "Explain gradient descent in plain words. What does the learning rate control?",
+   "why": "Follow the slope downhill in small steps; too big a rate overshoots and diverges, too small crawls. Being able to say this without jargon matters.",
+   "followups": ["Batch vs stochastic vs mini-batch?", "What's a local minimum and why is it less scary in deep learning?"]
+  },
+  {
+   "id": "ml-005", "category": "ml",
+   "question": "What's the difference between classification and regression? Name an algorithm for each.",
+   "why": "Basics, but freezing on them is fatal: classification predicts a label (logistic regression, trees), regression a number (linear regression).",
+   "followups": ["Why is it called logistic regression if it classifies?", "When would a decision tree beat logistic regression?"]
+  },
+  {
+   "id": "ml-006", "category": "ml",
+   "question": "What is a feature? Give examples of good and bad feature engineering.",
+   "why": "Models mostly live or die on features; knowing that leakage (a feature that secretly encodes the label) is the classic trap shows real intuition.",
+   "followups": ["What's one-hot encoding?", "How do you handle a missing value?", "What's normalization and when do you need it?"]
+  },
+  {
+   "id": "ml-007", "category": "ml",
+   "question": "How does a decision tree decide where to split?",
+   "why": "It picks the split that best separates the labels - measured by impurity (Gini) or information gain (entropy). Simple, explainable, and a real interview answer.",
+   "followups": ["Why do trees overfit, and how do random forests fix it?", "What does max_depth control?"]
+  },
+  {
+   "id": "ml-008", "category": "ml",
+   "question": "What's an embedding? Why are they useful for text?",
+   "why": "A dense vector where distance means similarity; they turn words/documents into geometry so models can compute on meaning instead of strings.",
+   "followups": ["How would you find similar documents with embeddings?", "What's cosine similarity?"]
+  },
+  {
+   "id": "pm-001", "category": "product",
+   "question": "Pick a product you use daily. What would you improve?",
+   "why": "Structure beats brilliance: name the user, the pain, your fix, how you'd measure it, and what you'd cut. Rambling feature lists fail this question.",
+   "followups": ["How would you measure whether the change worked?", "What's the downside of your improvement?"]
+  },
+  {
+   "id": "pm-002", "category": "product",
+   "question": "How would you decide between two features when you can only build one?",
+   "why": "They want a framework: impact on a metric that matters, confidence in the estimate, effort - and what evidence you'd gather first.",
+   "followups": ["What if leadership prefers the other one?", "What's RICE and when does it mislead?"]
+  },
+  {
+   "id": "pm-003", "category": "product",
+   "question": "A metric you own dropped 20% week over week. Walk me through your first hour.",
+   "why": "Order matters: confirm the data is real (logging change? seasonality?), segment (platform, region, cohort), then hypothesize. Jumping to causes first is the fail.",
+   "followups": ["What if only one platform dropped?", "The drop is real and everywhere - now what?"]
+  },
+  {
+   "id": "pm-004", "category": "product",
+   "question": "Should we build this feature users are asking for? How do you decide?",
+   "why": "Requests are symptoms, not specs: find the underlying need, size how many share it, and check whether a cheaper change solves it.",
+   "followups": ["Users ask for X but data says they won't use it - what wins?", "Give an example where the request hides the real problem."]
+  },
+  {
+   "id": "pm-005", "category": "product",
+   "question": "Design a product for [a group you know well]. What do you build first?",
+   "why": "Start with the sharpest pain, not the full vision; say what the smallest useful version is and how you'd know it's working.",
+   "followups": ["Who's the first user, specifically?", "What's the riskiest assumption?"]
+  },
+  {
+   "id": "pm-006", "category": "product",
+   "question": "How do you say no to a stakeholder's feature request?",
+   "why": "The answer is with evidence and an alternative: tie it to goals, show the cost against the roadmap, offer the cheaper experiment.",
+   "followups": ["What if they escalate?", "When should a no become a yes?"]
+  },
+  {
+   "id": "pm-007", "category": "product",
+   "question": "What's the difference between a good metric and a vanity metric?",
+   "why": "Actionability: a good metric changes what you do next (retention, activation), a vanity metric only goes up (total signups). Tying metrics to decisions is the point.",
+   "followups": ["Give a vanity metric for a product you use.", "What's a north star metric?"]
+  },
+  {
+   "id": "pm-008", "category": "product",
+   "question": "Tell me about a time you used data to change a decision.",
+   "why": "PM interviews want evidence you default to measurement: the number you looked at, what you expected, what it actually said, and what changed.",
+   "followups": ["When would you override the data?", "How big a sample do you need before you trust it?"]
+  }
+ ]
+}
