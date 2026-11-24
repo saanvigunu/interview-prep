@@ -1,2 +1,4 @@
-# interview-prep
-Spaced-repetition interview practice CLI: 48 real questions, self-graded, schedules what you're about to forget
+# interview-prep (work in progress)
+
+A spaced-repetition CLI for practicing interview questions. In progress -
+the scheduler and practice loop work; tests and the full README land next.
